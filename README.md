@@ -85,7 +85,7 @@ The current number of entries in the ZIP archive.
 
 The current byte size of the ZIP archive (assuming you don’t add a comment).
 
-### getBlob()
+### getBlob(name)
 
-Returns the ZIP archive as `Blob`. This will automatically close the archive if not done yet.
+Returns the ZIP archive as `File` (if you give a name) or as `Blob` (without name). This will automatically close the archive if not done yet.
 

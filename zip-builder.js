@@ -263,9 +263,14 @@ ZipBuilder.prototype.getCurrentSize = function () {
 	return this.nextOffset + this.size + 22;
 };
 
-ZipBuilder.prototype.getBlob = function () {
+ZipBuilder.prototype.getBlob = function (name) {
 	if (this.fileEntries.length === this.centralEntries.length) {
 		this.close();
+	}
+	if (name) {
+		return new File(this.fileEntries.concat(this.centralEntries), name, {
+			type: 'application/zip'
+		});
 	}
 	return new Blob(this.fileEntries.concat(this.centralEntries), {
 		type: 'application/zip'
